@@ -14,6 +14,12 @@ if __name__=="__main__":
 
     print("preprocess")
     feature_columns, train, test = preprocess(df, "preprocess")
-    print("feature_columns: ",feature_columns)
-    print("train:" , train)
-    print("test: ", test)
+    print("pass preprocess")
+
+    print("model train")
+
+    model = DeepFMModel(feature_columns)
+
+    model.train(*train)
+
+    model.evaluate(*test)
